@@ -1,0 +1,5 @@
+#!/bin/bash
+#array=(`ls`)
+#echo ${array[*]}
+#	file=$1
+	echo "`sort duplicate | uniq `" > duplicate

@@ -1,0 +1,11 @@
+#!/bin/bash
+IFS=$'\n'file_names=` ls $1 `
+declare -i number
+number=0
+for i in ${file_names[*]##*.}
+do 
+mkdir $1/$i
+mv $1/${file_names[num]} $1/$i/
+number=$number+1
+done
+

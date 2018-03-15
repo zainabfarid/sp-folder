@@ -1,0 +1,56 @@
+#!/bin/bash
+is_lower()
+{
+	String="XYZ"
+
+	Val=$(echo "$string" | tr '[:upper:]' '[:lower:]')
+
+	echo $val
+}
+
+is_root()
+{
+	Flag=0
+	if [ "`whoami`" == "root" ]
+	then
+		flag=0
+	else
+		flag=1	
+
+	return $flag	
+	fi
+}
+
+user_exists()
+{
+	Flag=0
+	Array=(`cat /etc/passwd | grep $1`)
+	if [ ${#array[*]} -eq 0 ]
+	then
+		echo "User does not exists"
+	else
+		echo "User exists"
+	fi
+return $flag
+}
+
+is_lower
+
+is_root
+if [ $? -eq 1 ]
+then
+	echo "False"
+else
+	echo "True"
+fi
+
+user=$1
+user_exists $user 
+
+is_root
+#if [ $? -eq 1 ]
+#then
+#	echo "False"
+#else
+#	echo "True"
+#fi

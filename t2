@@ -1,0 +1,8 @@
+#!/bin/bash
+
+File=$1
+echo "`sed -n 1~2p $file`" >> oddfile
+
+echo "`sed -n 2~2p $file`" >> evenfile
+
+
